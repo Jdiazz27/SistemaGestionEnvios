@@ -6,6 +6,7 @@ public class SistemadeGestiondeEnvios {
     public static void main(String[] args) {
           SwingUtilities.invokeLater(() -> {
         new pantallaPrincipal().setVisible(true);
+        //comentario pal branch
     });
     }
     
