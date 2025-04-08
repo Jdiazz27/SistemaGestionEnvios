@@ -164,10 +164,8 @@ public class pantallaPrincipal extends javax.swing.JFrame {
   
     public static void main(String args[]) {
        
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new pantallaPrincipal().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new pantallaPrincipal().setVisible(true);
         });
     }
     

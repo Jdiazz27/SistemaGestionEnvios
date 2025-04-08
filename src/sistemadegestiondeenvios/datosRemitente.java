@@ -213,8 +213,6 @@ public class datosRemitente extends javax.swing.JFrame {
     }//GEN-LAST:event_TipoIdActionPerformed
 
     private void AgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarClienteActionPerformed
-       String codigo = "CL" + (int)(Math.random() * 900000 + 100000); // CL + número de 6 cifras
-
         String nombre = Nombre.getText().trim();
         String direccion = jTextField4.getText().trim();
         String tipoId = TipoId.getSelectedItem().toString();
@@ -222,42 +220,46 @@ public class datosRemitente extends javax.swing.JFrame {
         String telefono = Telefono.getText().trim();
         String email = jTextField3.getText().trim();
 
-        // Validación de campos obligatorios
+        // Validaciones
         if (nombre.isEmpty() || direccion.isEmpty() || id.isEmpty() || tipoId.equals("Seleccione...")) {
             JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos obligatorios.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        // Validación de formato de teléfono
         if (!telefono.matches("\\d+")) {
             JOptionPane.showMessageDialog(this, "El teléfono debe contener solo números.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        // Validación básica de email
         if (!email.isEmpty() && (!email.contains("@") || !email.contains("."))) {
             JOptionPane.showMessageDialog(this, "Por favor ingrese un email válido.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
+        // Generar código único
+        String codigoCliente = "CL" + (int) (Math.random() * 900000 + 100000);
+
         // Guardar en archivo
         try {
-            FileWriter fw = new FileWriter("archivos/clientes.txt", true);
+            FileWriter fw = new FileWriter("clientes.txt", true);
             BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(nombre + "," + direccion + "," + tipoId + "," + id + "," + telefono + "," + email);
+
+            // Escribir todos los datos + código generado
+            bw.write(codigoCliente + "," + nombre + "," + direccion + "," + tipoId + "," + id + "," + telefono + "," + email);
             bw.newLine();
             bw.close();
-            
-            JOptionPane.showMessageDialog(this, "Cliente agregado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-            
-            // Limpiar campos después de guardar
+
+            // Mostrar el código generado
+            JOptionPane.showMessageDialog(this, "Cliente agregado correctamente.\nCódigo asignado: " + codigoCliente, "Éxito", JOptionPane.INFORMATION_MESSAGE);
+
+            // Limpiar campos
             Nombre.setText("");
             jTextField4.setText("");
             TipoId.setSelectedIndex(0);
             Id.setText("");
             Telefono.setText("");
             jTextField3.setText("");
-            
+
         } catch (IOException e) {
             JOptionPane.showMessageDialog(this, "Error al guardar los datos: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }

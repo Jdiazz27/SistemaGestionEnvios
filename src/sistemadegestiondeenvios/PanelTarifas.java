@@ -258,10 +258,8 @@ public class PanelTarifas extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PanelTarifas().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new PanelTarifas().setVisible(true);
         });
     }
 
