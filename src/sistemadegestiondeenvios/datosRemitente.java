@@ -241,7 +241,7 @@ public class datosRemitente extends javax.swing.JFrame {
 
         // Guardar en archivo
         try {
-            FileWriter fw = new FileWriter("clientes.txt", true);
+            FileWriter fw = new FileWriter("clientes.txt", true); //Crea la lista
             BufferedWriter bw = new BufferedWriter(fw);
 
             // Escribir todos los datos + código generado
