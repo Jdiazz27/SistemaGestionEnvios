@@ -64,6 +64,11 @@ public class pantallaPrincipal extends javax.swing.JFrame {
         Seguimiento.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         Seguimiento.setText("Seguimiento del paquete");
         Seguimiento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(42, 67, 127), 2));
+        Seguimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SeguimientoActionPerformed(evt);
+            }
+        });
 
         Registrar.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         Registrar.setText("Registrar pedidos y envíos");
@@ -149,6 +154,12 @@ public class pantallaPrincipal extends javax.swing.JFrame {
     private void ReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReporteActionPerformed
         this.dispose(); 
     }//GEN-LAST:event_ReporteActionPerformed
+
+    private void SeguimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeguimientoActionPerformed
+        SeguimientoDelPaquete v3 = new SeguimientoDelPaquete();
+        v3.setLocationRelativeTo(null); 
+        v3.setVisible(true);
+    }//GEN-LAST:event_SeguimientoActionPerformed
 
   
     public static void main(String args[]) {
