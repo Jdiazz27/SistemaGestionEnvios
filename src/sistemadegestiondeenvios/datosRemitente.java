@@ -7,6 +7,7 @@ package sistemadegestiondeenvios;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class datosRemitente extends javax.swing.JFrame {
@@ -14,6 +15,8 @@ public class datosRemitente extends javax.swing.JFrame {
     public datosRemitente() {
         initComponents();
         setLocationRelativeTo(null); // Centra la ventana
+        setTitle("Registro");
+//        setIconImage(new ImageIcon(getClass().getResource("/imagenes/file.png")).getImage());
     }
 
     @SuppressWarnings("unchecked")
@@ -42,15 +45,15 @@ public class datosRemitente extends javax.swing.JFrame {
         jLabel1.setText("Datos del remitente");
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel2.setText("Nombre");
+        jLabel2.setText("Nombre:");
 
         Nombre.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel3.setText("Tipo de identificacion");
+        jLabel3.setText("Tipo de identificación:");
 
         TipoId.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        TipoId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "‎ ", "Cedula", "Pasaporte", "NIT", " " }));
+        TipoId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "‎", "Cedula", "Pasaporte", "NIT", " " }));
         TipoId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TipoIdActionPerformed(evt);
@@ -58,12 +61,12 @@ public class datosRemitente extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel4.setText("Telefono");
+        jLabel4.setText("Teléfono:");
 
         Telefono.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel5.setText("Email");
+        jLabel5.setText("Email:");
 
         jTextField3.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
@@ -73,7 +76,7 @@ public class datosRemitente extends javax.swing.JFrame {
         });
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel6.setText("Direccion de envio");
+        jLabel6.setText("Dirección de envío:");
 
         jTextField4.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
@@ -85,7 +88,7 @@ public class datosRemitente extends javax.swing.JFrame {
         Id.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel7.setText("Ingrese id");
+        jLabel7.setText("Ingrese id:");
 
         AgregarCliente.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         AgregarCliente.setText("Agregar cliente");
@@ -179,7 +182,7 @@ public class datosRemitente extends javax.swing.JFrame {
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                         .addComponent(Datosdelpaquete, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(25, 25, 25))))
         );
