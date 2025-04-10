@@ -1,0 +1,5 @@
+Pedido recibido
+En preparación
+En camino
+Cerca de destino
+Entregado
