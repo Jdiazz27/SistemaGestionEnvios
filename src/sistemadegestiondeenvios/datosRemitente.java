@@ -219,39 +219,28 @@ public class datosRemitente extends javax.swing.JFrame {
         String id = Id.getText().trim();
         String telefono = Telefono.getText().trim();
         String email = jTextField3.getText().trim();
-
         // Validaciones
         if (nombre.isEmpty() || direccion.isEmpty() || id.isEmpty() || tipoId.equals("Seleccione...")) {
             JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos obligatorios.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-
         if (!telefono.matches("\\d+")) {
             JOptionPane.showMessageDialog(this, "El teléfono debe contener solo números.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-
         if (!email.isEmpty() && (!email.contains("@") || !email.contains("."))) {
             JOptionPane.showMessageDialog(this, "Por favor ingrese un email válido.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-
-        // Generar código único
-        String codigoCliente = "CL" + (int) (Math.random() * 900000 + 100000);
-
         // Guardar en archivo
         try {
             FileWriter fw = new FileWriter("clientes.txt", true); //Crea la lista
             BufferedWriter bw = new BufferedWriter(fw);
-
-            // Escribir todos los datos + código generado
-            bw.write(codigoCliente + "," + nombre + "," + direccion + "," + tipoId + "," + id + "," + telefono + "," + email);
+            // Escribir los datos sin código generado
+            bw.write(nombre + "," + direccion + "," + tipoId + "," + id + "," + telefono + "," + email);
             bw.newLine();
             bw.close();
-
-            // Mostrar el código generado
-            JOptionPane.showMessageDialog(this, "Cliente agregado correctamente.\nCódigo asignado: " + codigoCliente, "Éxito", JOptionPane.INFORMATION_MESSAGE);
-
+            JOptionPane.showMessageDialog(this, "Cliente agregado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             // Limpiar campos
             Nombre.setText("");
             jTextField4.setText("");
@@ -259,7 +248,6 @@ public class datosRemitente extends javax.swing.JFrame {
             Id.setText("");
             Telefono.setText("");
             jTextField3.setText("");
-
         } catch (IOException e) {
             JOptionPane.showMessageDialog(this, "Error al guardar los datos: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -274,7 +262,7 @@ public class datosRemitente extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void DatosdelpaqueteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DatosdelpaqueteActionPerformed
-        datosDestinatario destino = new datosDestinatario(); // Suponiendo que así se llama
+        reporteDeEntregas destino = new reporteDeEntregas(); // Suponiendo que así se llama
         destino.setLocationRelativeTo(null); // Centra la ventana
         destino.setVisible(true);
         this.dispose();

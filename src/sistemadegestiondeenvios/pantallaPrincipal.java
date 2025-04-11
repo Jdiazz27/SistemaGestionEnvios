@@ -152,7 +152,10 @@ public class pantallaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_SalirActionPerformed
 
     private void ReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReporteActionPerformed
-        this.dispose(); 
+        reporteDeEntregas v4 = new reporteDeEntregas();
+        v4.setLocationRelativeTo(null); 
+        v4.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_ReporteActionPerformed
 
     private void SeguimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeguimientoActionPerformed
