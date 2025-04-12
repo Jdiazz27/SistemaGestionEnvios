@@ -1,6 +1,8 @@
 
 package sistemadegestiondeenvios;
 
+import javax.swing.ImageIcon;
+
 
 
 
@@ -11,6 +13,8 @@ public class pantallaPrincipal extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Sistemas de gestión de envíos");
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/hola.png")).getImage());
+
         
     }
 
@@ -144,7 +148,6 @@ public class pantallaPrincipal extends javax.swing.JFrame {
         v2.setLocationRelativeTo(null); 
         v2.setVisible(true);
         this.dispose();
-        
     }//GEN-LAST:event_CalcularTyPActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
@@ -152,7 +155,7 @@ public class pantallaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_SalirActionPerformed
 
     private void ReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReporteActionPerformed
-        reporteDeEntregas v4 = new reporteDeEntregas();
+        ReporteDeEntregas1 v4 = new ReporteDeEntregas1();
         v4.setLocationRelativeTo(null); 
         v4.setVisible(true);
         this.dispose();
@@ -162,6 +165,7 @@ public class pantallaPrincipal extends javax.swing.JFrame {
         SeguimientoDelPaquete v3 = new SeguimientoDelPaquete();
         v3.setLocationRelativeTo(null); 
         v3.setVisible(true);
+        this.dispose();  
     }//GEN-LAST:event_SeguimientoActionPerformed
 
   
