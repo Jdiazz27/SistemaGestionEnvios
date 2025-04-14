@@ -15,15 +15,15 @@ import javax.swing.JOptionPane;
  *
  * @author braun
  */
-public class PanelTarifas extends javax.swing.JFrame {
+public class PanelTarifas1 extends javax.swing.JFrame {
 
     /**
      * Creates new form PanelTarifas
      */
-    public PanelTarifas() {
+    public PanelTarifas1() {
         initComponents();
-        setTitle("Calcular pagos y tarifas");
         setLocationRelativeTo(null);
+        setTitle("Calcular pagos y tarifas");
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/hola.png")).getImage());
 
     }
@@ -49,8 +49,6 @@ public class PanelTarifas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jButton2 = new javax.swing.JButton();
-        seguiTxt = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,7 +71,7 @@ public class PanelTarifas extends javax.swing.JFrame {
         jLabel3.setText("Destino:");
 
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel4.setText("Tipo:");
+        jLabel4.setText("Urgencia:");
 
         urgencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Urgente", "Normal" }));
 
@@ -107,9 +105,6 @@ public class PanelTarifas extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel6.setText("Código de seguimiento:");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -117,30 +112,23 @@ public class PanelTarifas extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel4)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(urgencia, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel3)
+                            .addGap(18, 18, 18)
+                            .addComponent(destino, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(seguiTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tField, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel4)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(urgencia, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(destino, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tField, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(66, 66, 66)
-                                .addComponent(jLabel1)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(66, 66, 66)
+                        .addComponent(jLabel1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -172,15 +160,11 @@ public class PanelTarifas extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(urgencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(seguiTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(27, 27, 27)
                 .addComponent(calcular, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -209,15 +193,8 @@ public class PanelTarifas extends javax.swing.JFrame {
 
     private void calcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularActionPerformed
         try {
-            String codigoBuscado = seguiTxt.getText().trim();
             double peso = Double.parseDouble(tField.getText().trim());
 
-            // Validación del código de seguimiento numérico
-            if (!codigoBuscado.matches("\\d+")) {
-                JOptionPane.showMessageDialog(this, "Digite un valor númerico positivo en el código de seguimiento.", "¡Error!", JOptionPane.PLAIN_MESSAGE);
-                seguiTxt.setText("");
-                return;
-            }
 
             // Validación del peso
             if (peso < 1) {
@@ -225,31 +202,7 @@ public class PanelTarifas extends javax.swing.JFrame {
                 tField.setText("");
                 return;
             }
-
-            // Variables para almacenar la información del cliente
-            boolean encontrado = false;
-
-            // Búsqueda en clientes.txt
-            BufferedReader br = new BufferedReader(new FileReader("clientes.txt"));
-            String linea;
-             while ((linea = br.readLine()) != null) {
-                String[] partes = linea.split(",");
-                if (partes.length >= 7) {
-                    String codigoCliente = partes[6].trim();
-                    if (codigoCliente.equals(codigoBuscado)) {
-                        encontrado = true;
-                        break;
-                    }
-                }
-            }
-            br.close();
-
-            if (!encontrado) {
-                JOptionPane.showMessageDialog(this, "No se encontró ningún cliente con ese código de seguimiento.", "Sin resultados", JOptionPane.INFORMATION_MESSAGE);
-                seguiTxt.setText("");
-                return;
-            }
-
+            
             // Obtener destino y urgencia
             String destinoSeleccionado = destino.getSelectedItem().toString();
             String urgenciaSeleccionada = urgencia.getSelectedItem().toString();
@@ -281,10 +234,8 @@ public class PanelTarifas extends javax.swing.JFrame {
 
             // Guardar en tarifa.txt
             FileWriter fw = new FileWriter("tarifa.txt", true);
-            fw.write(codigoBuscado + "," + destinoSeleccionado + "," + urgenciaSeleccionada + "," + peso + "," + total + "\n");
+            fw.write(destinoSeleccionado + "," + urgenciaSeleccionada + "," + peso + "," + total + "\n");
             fw.close();
-
-            JOptionPane.showMessageDialog(this, "¡Envío de paquete registrado correctamente!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 
         } catch (NumberFormatException e) {
             tField.setText("");
@@ -319,19 +270,20 @@ public class PanelTarifas extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PanelTarifas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PanelTarifas1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PanelTarifas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PanelTarifas1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PanelTarifas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PanelTarifas1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PanelTarifas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PanelTarifas1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new PanelTarifas().setVisible(true);
+            new PanelTarifas1().setVisible(true);
         });
     }
 
@@ -343,11 +295,9 @@ public class PanelTarifas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField seguiTxt;
     private javax.swing.JTextField tField;
     private javax.swing.JComboBox<String> urgencia;
     // End of variables declaration//GEN-END:variables

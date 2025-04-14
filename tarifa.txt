@@ -1,3 +1,8 @@
 1443565420,Destino 3,Normal,34.0,30600.0
 7628864818,Destino 3,Normal,367.0,330300.0
 9721527949,Destino 2,Urgente,36236.0,3.80478E7
+5699463276,Destino 1,Normal,78.0,39000.0
+4093960566,Destino 4,Urgente,34.9,57585.0
+Destino 2,Normal,67.0,46900.0
+7326404613,Destino 3,Normal,78.0,70200.0
+Destino 1,Normal,23.0,11500.0

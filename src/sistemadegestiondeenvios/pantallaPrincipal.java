@@ -36,7 +36,7 @@ public class pantallaPrincipal extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Trebuchet MS", 1, 26)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(35, 56, 105));
-        jLabel9.setText("Sistema de gestión de envíos");
+        jLabel9.setText("Sistema de Gestión de Envíos");
 
         Salir.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         Salir.setText("Salir");
@@ -102,7 +102,7 @@ public class pantallaPrincipal extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addComponent(jLabel9)))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,7 +144,7 @@ public class pantallaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_RegistrarActionPerformed
 
     private void CalcularTyPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcularTyPActionPerformed
-        PanelTarifas v2 = new PanelTarifas();
+        ventana v2 = new ventana();
         v2.setLocationRelativeTo(null); 
         v2.setVisible(true);
         this.dispose();

@@ -6,3 +6,6 @@ cristofer,cra 46,NIT,7863,278322,cris@.com,6178910512
 sherk,calle 12,Pasaporte,2328554,532536,sherk@.com,9413353660
 phineas,cra 64,Pasaporte,3273,8734787,phin@.com,8984690429
 fer,cra 51b,Pasaporte,36236,278378,fer@.com,9721527949
+Lupe,cra 3,Pasaporte,384,282388,lupe@.com,5699463276
+María,calle 8,Cédula,3838,3272378,maria@.com,4093960566
+Enrique,calle 67,Cédula,1122,8737832,enri@.com,7326404613
