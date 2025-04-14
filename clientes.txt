@@ -1,2 +1,8 @@
-laura,cra 54,Cédula,1028,3267326,lau@.com,4633666688
-lorena,calle 67,Pasaporte,2378,3663267,jskd@.com,8142156103
+Laura Villalobos,Cra 45,Cédula,1022,326673267,lau@.com,1443565420
+lupe,calle 9,Cédula,1029,349944,aakl@.com,7628864818
+sandra,cra 46,Pasaporte,2233,213445,sand@.com,5034235477
+Juan,calle 67,Pasaporte,2998,298289,juan@.com,3261081184
+cristofer,cra 46,NIT,7863,278322,cris@.com,6178910512
+sherk,calle 12,Pasaporte,2328554,532536,sherk@.com,9413353660
+phineas,cra 64,Pasaporte,3273,8734787,phin@.com,8984690429
+fer,cra 51b,Pasaporte,36236,278378,fer@.com,9721527949

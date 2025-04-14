@@ -214,7 +214,8 @@ public class PanelTarifas extends javax.swing.JFrame {
 
             // Validación del código de seguimiento numérico
             if (!codigoBuscado.matches("\\d+")) {
-                JOptionPane.showMessageDialog(this, "El código de seguimiento debe ser numérico.", "¡Error!", JOptionPane.PLAIN_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Digite un valor númerico positivo en el código de seguimiento.", "¡Error!", JOptionPane.PLAIN_MESSAGE);
+                seguiTxt.setText("");
                 return;
             }
 
@@ -222,7 +223,7 @@ public class PanelTarifas extends javax.swing.JFrame {
             if (peso < 1) {
                 JOptionPane.showMessageDialog(this, "El peso debe ser mayor o igual a 1 kg.", "¡Error!", JOptionPane.PLAIN_MESSAGE);
                 tField.setText("");
-            return;
+                return;
             }
 
             // Variables para almacenar la información del cliente

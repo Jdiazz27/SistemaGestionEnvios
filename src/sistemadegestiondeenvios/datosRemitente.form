@@ -107,7 +107,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="Telefono" min="-2" pref="92" max="-2" attributes="0"/>
+                                  <Component id="telefonoTxt" min="-2" pref="92" max="-2" attributes="0"/>
                                   <EmptySpace pref="261" max="32767" attributes="0"/>
                                   <Component id="jButton3" min="-2" pref="45" max="-2" attributes="0"/>
                               </Group>
@@ -153,7 +153,7 @@
                           <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="Telefono" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="telefonoTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
@@ -249,7 +249,7 @@
             <Property name="text" type="java.lang.String" value="Tel&#xe9;fono:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="Telefono">
+        <Component class="javax.swing.JTextField" name="telefonoTxt">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Times New Roman" size="12" style="0"/>

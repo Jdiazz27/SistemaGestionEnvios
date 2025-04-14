@@ -5,10 +5,13 @@
 package sistemadegestiondeenvios;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -44,7 +47,7 @@ public class SeguimientoDelPaquete extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         TipoId = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        IdTxa1 = new javax.swing.JTextField();
+        seguiTxt = new javax.swing.JTextField();
 
         jButton2.setBackground(new java.awt.Color(204, 204, 204));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/left-arrow.png"))); // NOI18N
@@ -135,7 +138,7 @@ public class SeguimientoDelPaquete extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(IdTxa1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(seguiTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(97, 97, 97)
                         .addComponent(buscarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -167,7 +170,7 @@ public class SeguimientoDelPaquete extends javax.swing.JFrame {
                         .addGap(15, 15, 15)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(IdTxa1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(seguiTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                         .addComponent(buscarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -206,13 +209,20 @@ public class SeguimientoDelPaquete extends javax.swing.JFrame {
 
     private void buscarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBtnActionPerformed
         String idBuscado = IdTxa.getText().trim();
-        String tipoIdBuscado = TipoId.getSelectedItem().toString();
+        String tipoIdBuscado = TipoId.getSelectedItem().toString().trim();
+        String seguiBuscado = seguiTxt.getText().trim();
 
-        if (idBuscado.isEmpty() || tipoIdBuscado.equals("Seleccione...")) {
-            estadoTxa.setText("Por favor, ingrese el ID y seleccione el tipo de \nidentificación.");
+        if (idBuscado.isEmpty() || tipoIdBuscado.equals("Seleccione...") || seguiBuscado.isEmpty()) {
+            estadoTxa.setText("Por favor, llene los campos vacíos o el \ncampo vacío");
             return;
         }
-        
+
+        if (!seguiBuscado.matches("\\d+")) {
+            JOptionPane.showMessageDialog(this, "El código de seguimiento debe contener solo números enteros positivos.", "Error", JOptionPane.ERROR_MESSAGE);
+            seguiTxt.setText("");
+            return;
+        }
+
         boolean encontrado = false;
         
         try ( BufferedReader br = new BufferedReader(new FileReader("clientes.txt"))) {
@@ -221,28 +231,40 @@ public class SeguimientoDelPaquete extends javax.swing.JFrame {
                 String[] datos = linea.split(",");
 
                 // Asegurar que haya suficientes campos
-                if (datos.length >= 6) {
+                if (datos.length >= 7) {
                     String tipoId = datos[2].trim();
                     String id = datos[3].trim();
+                    String nombre = datos[0].trim();
+                    String direccion = datos[1].trim();
+                    String telefono = datos[4].trim();
+                    String email = datos[5].trim();
+                    String codigoGenerado = datos[6].trim();
 
-                    if (tipoId.equals(tipoIdBuscado) && id.equals(idBuscado)) {
+                    if (tipoId.equals(tipoIdBuscado) && id.equals(idBuscado) && codigoGenerado.equals(seguiBuscado)) {
                         //Estado de envío
-                        String[] estado={"En ciudad de origen","En ruta","Entregado","En problema con el pedido","En cicudad de destino","Retrasado"};
+                        String[] estado={"En ciudad de origen","En ruta","Entregado","En problema con el pedido","En ciudad de destino","Retrasado"};
                         Random rand = new Random();
                         String Eenvio = estado[rand.nextInt(estado.length)];
                         // Mostrar todos los datos en el JTextArea
                         estadoTxa.setText("Cliente encontrado:\n"
-                                + "Nombre: " + datos[0] + "\n"
-                                + "Dirección: " + datos[1] + "\n"
-                                + "Tipo de ID: " + datos[2] + "\n"
-                                + "ID: " + datos[3] + "\n"
-                                + "Teléfono: " + datos[4] + "\n"
-                                + "Email: " + datos[5]+ "\n"
+                                + "Nombre: " + nombre + "\n"
+                                + "Dirección: " + direccion + "\n"
+                                + "Tipo de ID: " + tipoId + "\n"
+                                + "ID: " + id + "\n"
+                                + "Teléfono: " + telefono + "\n"
+                                + "Email: " + email+ "\n"
                                 + "Estado del envío: " + Eenvio);
                         encontrado = true;
                         
+                        FileWriter fw = new FileWriter("Seguimiento del Paquete.txt", true); //Crea la lista
+                        BufferedWriter bw = new BufferedWriter(fw);
+                        // Escribir los datos sin código generado
+                        bw.write(nombre + "," + direccion + "," + tipoId + "," + id + "," + telefono + "," + email + "," + codigoGenerado+","+Eenvio);
+                        bw.newLine();
+                        bw.close();
                     }
                 }
+               
             }
 
             if (!encontrado) {
@@ -275,7 +297,6 @@ public class SeguimientoDelPaquete extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField IdTxa;
-    private javax.swing.JTextField IdTxa1;
     private javax.swing.JComboBox<String> TipoId;
     private javax.swing.JButton buscarBtn;
     private javax.swing.JTextArea estadoTxa;
@@ -288,5 +309,6 @@ public class SeguimientoDelPaquete extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField seguiTxt;
     // End of variables declaration//GEN-END:variables
 }

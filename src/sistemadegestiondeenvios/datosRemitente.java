@@ -35,7 +35,7 @@ public class datosRemitente extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         Id = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        Telefono = new javax.swing.JTextField();
+        telefonoTxt = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -81,7 +81,7 @@ public class datosRemitente extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel4.setText("Teléfono:");
 
-        Telefono.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        telefonoTxt.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel5.setText("Email:");
@@ -164,7 +164,7 @@ public class datosRemitente extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addGap(18, 18, 18)
-                                .addComponent(Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(telefonoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 261, Short.MAX_VALUE)
                                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(22, 22, 22))
@@ -198,7 +198,7 @@ public class datosRemitente extends javax.swing.JFrame {
                         .addGap(17, 17, 17)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(telefonoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -231,7 +231,7 @@ public class datosRemitente extends javax.swing.JFrame {
         String direccion = jTextField4.getText().trim();
         String tipoId = TipoId.getSelectedItem().toString();
         String id = Id.getText().trim();
-        String telefono = Telefono.getText().trim();
+        String telefono = telefonoTxt.getText().trim();
         String email = jTextField3.getText().trim();
         // Generar código de seguimiento aleatorio
         Random random = new Random();
@@ -248,11 +248,19 @@ public class datosRemitente extends javax.swing.JFrame {
         }
         if (!telefono.matches("\\d+")) {
             JOptionPane.showMessageDialog(this, "El teléfono debe contener solo números.", "Error", JOptionPane.ERROR_MESSAGE);
+            telefonoTxt.setText("");
             return;
         }
         if (!email.isEmpty() && (!email.contains("@") || !email.contains("."))) {
             JOptionPane.showMessageDialog(this, "Por favor ingrese un email válido.", "Error", JOptionPane.ERROR_MESSAGE);
+            jTextField3.setText("");
             return;
+        }
+        
+        if (!nombre.matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$")) {
+            JOptionPane.showMessageDialog(this, "El nombre solo debe contener letras.", "Nombre inválido", JOptionPane.ERROR_MESSAGE);
+            Nombre.setText("");
+            return; 
         }
      
         // Guardar en archivo
@@ -269,7 +277,7 @@ public class datosRemitente extends javax.swing.JFrame {
             jTextField4.setText("");
             TipoId.setSelectedIndex(0);
             Id.setText("");
-            Telefono.setText("");
+            telefonoTxt.setText("");
             jTextField3.setText("");
         } catch (IOException e) {
             JOptionPane.showMessageDialog(this, "Error al guardar los datos: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -314,7 +322,6 @@ public class datosRemitente extends javax.swing.JFrame {
     private javax.swing.JButton AgregarCliente;
     private javax.swing.JTextField Id;
     private javax.swing.JTextField Nombre;
-    private javax.swing.JTextField Telefono;
     private javax.swing.JComboBox<String> TipoId;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
@@ -329,5 +336,6 @@ public class datosRemitente extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField telefonoTxt;
     // End of variables declaration//GEN-END:variables
 }

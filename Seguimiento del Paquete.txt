@@ -1,0 +1,8 @@
+Laura Villalobos,Cra 45,Cédula,1022,326673267,lau@.com,1443565420,En ciudad de origen
+lupe,calle 9,Cédula,1029,349944,aakl@.com,7628864818,Retrasado
+sandra,cra 46,Pasaporte,2233,213445,sand@.com,5034235477,Entregado
+Juan,calle 67,Pasaporte,2998,298289,juan@.com,3261081184,En ciudad de origen
+cristofer,cra 46,NIT,7863,278322,cris@.com,6178910512,Retrasado
+sherk,calle 12,Pasaporte,2328554,532536,sherk@.com,9413353660,En ruta
+phineas,cra 64,Pasaporte,3273,8734787,phin@.com,8984690429,En problema con el pedido
+fer,cra 51b,Pasaporte,36236,278378,fer@.com,9721527949,En ciudad de destino

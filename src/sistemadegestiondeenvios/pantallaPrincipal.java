@@ -12,7 +12,7 @@ public class pantallaPrincipal extends javax.swing.JFrame {
           
         initComponents();
         setLocationRelativeTo(null);
-        setTitle("Sistemas de gestión de envíos");
+        setTitle("Sistema De Gestión De Envíos");
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/hola.png")).getImage());
 
         
@@ -36,7 +36,7 @@ public class pantallaPrincipal extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Trebuchet MS", 1, 26)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(35, 56, 105));
-        jLabel9.setText("Sistema de gestion de envios");
+        jLabel9.setText("Sistema de gestión de envíos");
 
         Salir.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         Salir.setText("Salir");
